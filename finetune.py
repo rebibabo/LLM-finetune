@@ -1,5 +1,3 @@
-import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 from dotenv import load_dotenv
 load_dotenv()
 from unsloth import FastLanguageModel
@@ -90,5 +88,6 @@ trainer = SFTTrainer(
     ),
 )
 
+trainer_stats = trainer.train()
 model.save_pretrained("lora_model") # Local saving
 tokenizer.save_pretrained("lora_model")
